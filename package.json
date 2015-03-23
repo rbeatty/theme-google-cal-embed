@@ -1,0 +1,31 @@
+{
+  "name": "theme-google-cal-embed",
+  "version": "0.0.1",
+  "description": "Apply a custom stylesheet to an embedded Google Calendar.",
+  "homepage": "",
+  "repository": "theme-google-cal-embed",
+  "author": [
+    {
+      "name": "Randall Beatty",
+      "email": "randall@warpaintmedia.ca",
+      "url": "http://randallbeatty.com"
+    },
+    {
+      "name": "WARPAINT Media",
+      "email": "hello@warpaintmedia.ca",
+      "url": "http://warpaintmedia.ca"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-sass": "*"
+  }
+}
