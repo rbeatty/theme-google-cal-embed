@@ -1,0 +1,88 @@
+{
+  "name": "rbeatty/theme-google-cal-embed",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "Theme embedded Google Calendar",
+  "branch": "",
+  "style": {
+    "name": "Swiss",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/SwissHeader",
+      "article": "article/SwissArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+    "heading": {
+      "fontWeight": 700,
+      "letterSpacing": "-0.01em"
+    },
+    "layout": {
+      "fluid": true
+    },
+    "colors": {
+      "text": "#000",
+      "background": "#fff",
+      "primary": "#05a",
+      "secondary": "#444",
+      "highlight": "#f30",
+      "border": "#ccc",
+      "muted": "#eee"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/rbeatty/theme-google-cal-embed",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/theme-google-cal-embed",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "theme-google-cal-embed",
+      "subhead": "Apply a custom stylesheet to an embedded Google Calendar",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "theme-google-cal-embed: Apply a custom stylesheet to an embedded Google Calendar",
+          "url": null
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "rbeatty",
+          "repo": "theme-google-cal-embed"
+        }
+      ],
+      "text": "v0.0.1"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<h1>Custom Google Calendar</h1>\n<p>Apply a custom stylesheet to an embedded Google Calendar to match the rest of your site.</p>\n<h2>Instructions</h2>\n<p>Since you can&apos;t just inject a stylesheet into an iframe or overwrite the CSS we have to go at it a different way...</p>\n<ol>\n<li>Find the link to your calendar</li>\n</ol>\n<p>If you are the owner of the calendar, this can be found in your calendar details:\n<img src=\"calendar-details.jpg\"></p>\n<ol>\n<li>Download the calendar each time the page is requested</li>\n</ol>\n<pre><span class=\"php\"><span class=\"hljs-meta\">&lt;?php</span> $calendar = file_get_contents(<span class=\"hljs-string\">&quot;https://www.google.com/calendar/embed?...&quot;</span>) <span class=\"hljs-meta\">?&gt;</span></span></pre><ol>\n<li>Split the downloaded HTML right before <code>&lt;/head&gt;</code> and add your stylesheet</li>\n</ol>\n<pre><span class=\"php\"><span class=\"hljs-meta\">&lt;?php</span> $calendar = str_replace(<span class=\"hljs-string\">&apos;&lt;/head&gt;&apos;</span>, <span class=\"hljs-string\">&apos;&lt;link rel=&quot;stylesheet&quot; href=&quot;../css/calendar.css&quot;&gt;&lt;/head&gt;&apos;</span>, $calendar) <span class=\"hljs-meta\">?&gt;</span></span></pre><ol>\n<li>Save the updated file</li>\n</ol>\n<pre><span class=\"php\"><span class=\"hljs-meta\">&lt;?php</span> file_put_contents(<span class=\"hljs-string\">&apos;calendar/calendar.html&apos;</span>, $calendar) <span class=\"hljs-meta\">?&gt;</span></span></pre><p><em>Make sure you have write permissions on the folder you are saving to</em></p>\n<ol>\n<li>Render the saved file in an iframe</li>\n</ol>\n<pre>&lt;<span class=\"hljs-selector-tag\">iframe</span> src=<span class=\"hljs-string\">&quot;calendar/calendar.html&quot;</span> frameborder=<span class=\"hljs-string\">&quot;0&quot;</span> <span class=\"hljs-attribute\">height</span>=<span class=\"hljs-string\">&quot;750&quot;</span>&gt;&lt;/iframe&gt;</pre><p><em>Make sure a height is specified on the iframe or you won&apos;t see any events</em></p>\n<ol>\n<li>Theme away! Now you can style the calendar to match the rest of your site. There is an SCSS file included with some variables that might speed things up.</li>\n</ol>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/rbeatty/theme-google-cal-embed",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/rbeatty",
+          "text": "rbeatty"
+        }
+      ]
+    }
+  ]
+}
